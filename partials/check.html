@@ -1,0 +1,43 @@
+<div class="page-header">
+	<h1>Controleer installatie</h1>
+	<span class="pull-right">{{ user.full_name }} <img class="user-image"
+													   ng-src="https://graph.facebook.com/{{ user.id }}/picture?width=32&height=32"></span>
+</div>
+
+<div class="fluid-row">
+	<div class=" span6 confirm-form">
+		<p>De app {{ fbApp.app_name }} zal op pagina <a href="https://facebook.com/{{ fbApp.page_id }}">
+			{{ fbApp.page_name }}</a> geinstalleerd worden. Controleer of dit in orde is. Zodra je op Accepteren klikt
+			wordt de applicatie publiek geinstalleerd op de pagina.</p>
+
+		<form class="well">
+			<div class="row-fluid confirm-box">
+				<div class="span5">
+					<img class="fb-image"
+						 ng-src="https://graph.facebook.com/{{ fbApp.app_id }}/picture?width=75&height=75">
+
+					<p>{{ fbApp.app_name }}</p>
+				</div>
+				<div class="span2 ic-holder">
+					<i class="fa fa-arrow-right ic-install fa-5x"></i>
+				</div>
+				<div class="span5">
+					<img class="fb-image"
+						 ng-src="https://graph.facebook.com/{{ fbApp.page_id }}/picture?width=75&height=75">
+
+					<p>{{ fbApp.page_name }}</p>
+				</div>
+			</div>
+		</form>
+
+		<p>Als dit nog niet de bedoeling is kun je het proces afbreken door op de Annuleren knop te drukken of door deze
+			pagina te sluiten. Er zijn nog geen wijzigingen gemaakt.</p>
+
+		<div class="form-actions">
+			<button type="submit" class="btn btn-primary" ng-click="installApp()">Accepteren</button>
+			<button type="button" class="btn" ng-click="cancel()">Annuleren</button>
+		</div>
+	</div>
+</div>
+
+

@@ -1,0 +1,69 @@
+body{
+	padding-top: 40px;
+	padding-bottom: 40px;
+	background-color: #f5f5f5;
+}
+
+.container{
+	background-color: white;
+
+	padding: 19px 29px;
+
+	border: 1px solid #e5e5e5;
+
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+}
+
+.page-header{
+	padding-bottom: 5px;
+	overflow: auto;
+}
+
+.confirm-form{
+	margin: 10px auto;
+	float: none;
+}
+
+.well{
+	margin-top: 20px;
+}
+
+.confirm-box{
+	text-align: center;
+}
+
+.user-image{
+	height: 20px;
+}
+
+.fb-image{
+	width: 75px;
+	height: 75px;
+
+	margin: 10px;
+
+	background-color: #fff;
+
+	border-radius: 7px;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+}
+
+.ic-holder{
+	line-height: 75px;
+	margin-top: 0.5em;
+}
+
+.ic-install{
+	vertical-align: middle;
+}
