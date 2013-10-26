@@ -2,6 +2,20 @@
 	<h1>Socialyse app installer</h1>
 </div>
 
-<p>Start page, go <a href="#/check/{{ app_alias }}">next</a></p>
+<div us-spinner="{radius: 60, length: 40}" ng-show="!inited" class="spinner"></div>
 
-<p>Bla bla intro text bla bla, de app is {{ app_alias }}</p>
+<div ng-show="inited">
+	<p>Welkom bij de Socialyse app installer. Het lijkt er op dat je deze installer nog nooit hebt gebruikt
+		of dat je niet bent ingelogd.</p>
+
+	<p>Het proces is erg simpel:</p>
+	<ol>
+		<li>Log in met Facebook met de knop hier onder</li>
+		<li>Controleer of de app installatie correct is</li>
+		<li>Bevestig de installatie</li>
+	</ol>
+
+	<p>Na dit proces zal de Facebook app correct op de goede Facebook fan page staan.</p>
+
+	<button class="btn btn-primary" ng-click="login()" ng-disabled="loginStatus.status == 'connected'">Connect with Facebook</button>
+</div>

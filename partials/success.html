@@ -1,5 +1,14 @@
 <div class="page-header">
-	<h1>Success page</h1>
+	<h1>Gelukt!</h1>
+	<span class="pull-right">{{ user.first_name }} {{ user.last_name }}
+		<img class="user-image" ng-src="{{ userPic() }}"
+			 src="img/blank.png"></span>
 </div>
 
-<p>Success</p>
+<p>De app installatie is succesvol uitgevoerd! Je fans kunnen de app vanaf nu gaan gebruiken.</p>
+
+<p>Als je de app wilt bekijken kan dat hier: <a
+		href="https://facebook.com/{{ fbApp.page_id }}?sk=app_{{ fbApp.app_id}}">{{ fbApp.app_name }}</a>.</p>
+
+<p><strong>Let op:</strong> Dit is niet altijd de link die je met je fans kunt delen. Deze link krijg je van Socialyse.
+</p>

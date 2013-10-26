@@ -5,8 +5,16 @@
 var fbAppInstaller = angular.module('fbAppInstaller', [
 	'ngRoute',
 	'fbAppControllers',
-	'fbAppServices'
+	'fbAppServices',
+	'angularSpinner',
+	'ezfb'
 ]);
+
+fbAppInstaller.config(function($FBProvider){
+	$FBProvider.setInitParams({
+		appId: '619323064786371'
+	});
+})
 
 fbAppInstaller.config(['$routeProvider',
 	function($routeProvider){
@@ -26,7 +34,10 @@ fbAppInstaller.config(['$routeProvider',
 			when('/cancelled', {
 				templateUrl: 'partials/cancelled.html'
 			}).
+			when('/notfound', {
+				templateUrl: 'partials/none.html'
+			}).
 			otherwise({
-				redirectTo: '/start/svo'
+				redirectTo: '/notfound'
 			});
 	}]);

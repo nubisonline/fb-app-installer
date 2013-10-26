@@ -25,6 +25,15 @@ body{
 	overflow: auto;
 }
 
+.spinner{
+	margin: auto auto;
+
+	width: 100px;
+	height: 100px;
+	padding-top: 150px;
+	padding-bottom: 50px;
+}
+
 .confirm-form{
 	margin: 10px auto;
 	float: none;

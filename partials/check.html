@@ -1,12 +1,38 @@
 <div class="page-header">
 	<h1>Controleer installatie</h1>
-	<span class="pull-right">{{ user.full_name }} <img class="user-image"
-													   ng-src="https://graph.facebook.com/{{ user.id }}/picture?width=32&height=32"></span>
+	<span class="pull-right">{{ user.first_name }} {{ user.last_name }}
+		<img class="user-image" ng-src="{{ userPic() }}"
+			 src="img/blank.png"></span>
 </div>
 
 <div class="fluid-row">
 	<div class=" span6 confirm-form">
-		<p>De app {{ fbApp.app_name }} zal op pagina <a href="https://facebook.com/{{ fbApp.page_id }}">
+		<div class="alert alert-block alert-error" ng-show="error.scope">
+			<h4>Fout!</h4>
+			Het lijkt er op dat je bij het inloggen geen toestemming hebt gegeven voor het beheren van pagina's.<br>
+			Als dat zo is, <a href="" ng-click="login()">probeer het dan a.u.b. opnieuw</a>.<br>
+			Zo niet ben je van geen enkele Facebook pagina admin. Dit installatieprogramma heeft dan ook geen zin voor
+			je.
+		</div>
+		<div class="alert alert-block alert-error" ng-show="error.admin">
+			<h4>Fout!</h4>
+			Je bent geen admin van {{ fbApp.page_name }}.<br>
+			Stuur deze link a.u.b. door naar een admin van de page.
+		</div>
+		<div class="alert alert-block alert-error" ng-show="error.perms">
+			<h4>Fout!</h4>
+			Je bent wel admin van {{ fbApp.page_name }}, maar je rol is niet hoog genoeg om nieuwe apps te
+			installeren.<br>
+			Stuur deze link a.u.b. door naar een admin van de page die hiervoor wel rechten heeft, of vraag hem/haar om
+			jouw rechten te verhogen.
+		</div>
+		<div class="alert alert-block alert-error" ng-show="error.install">
+			<h4>Fout!</h4>
+			Er is iets mis gegaan met het installeren.
+			Neem a.u.b. contact op met Socialyse om de installatie te voltooien.
+		</div>
+
+		<p>De app <em>{{ fbApp.app_name }}</em> zal op pagina <a href="https://facebook.com/{{ fbApp.page_id }}">
 			{{ fbApp.page_name }}</a> geinstalleerd worden. Controleer of dit in orde is. Zodra je op Accepteren klikt
 			wordt de applicatie publiek geinstalleerd op de pagina.</p>
 
@@ -14,7 +40,8 @@
 			<div class="row-fluid confirm-box">
 				<div class="span5">
 					<img class="fb-image"
-						 ng-src="https://graph.facebook.com/{{ fbApp.app_id }}/picture?width=75&height=75">
+						 ng-src="{{ appPic() }}"
+						 src="img/blank.png">
 
 					<p>{{ fbApp.app_name }}</p>
 				</div>
@@ -23,7 +50,8 @@
 				</div>
 				<div class="span5">
 					<img class="fb-image"
-						 ng-src="https://graph.facebook.com/{{ fbApp.page_id }}/picture?width=75&height=75">
+						 ng-src="{{ pagePic() }}"
+						 src="img/blank.png">
 
 					<p>{{ fbApp.page_name }}</p>
 				</div>
@@ -34,7 +62,9 @@
 			pagina te sluiten. Er zijn nog geen wijzigingen gemaakt.</p>
 
 		<div class="form-actions">
-			<button type="submit" class="btn btn-primary" ng-click="installApp()">Accepteren</button>
+			<button type="submit" class="btn btn-primary" ng-click="installApp()" ng-disabled="!install_able">
+				Accepteren
+			</button>
 			<button type="button" class="btn" ng-click="cancel()">Annuleren</button>
 		</div>
 	</div>
